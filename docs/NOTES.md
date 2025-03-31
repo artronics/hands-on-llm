@@ -1,0 +1,1 @@
+word2vec visual illustration: https://jalammar.github.io/illustrated-word2vec/
