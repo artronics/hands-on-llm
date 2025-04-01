@@ -95,8 +95,8 @@ def main():
     ds = load_dataset()
     # y_pred = test_classifier_model(ds)
     # y_pred = embedding_model(ds)
-    # y_pred = cosine_similarity(ds)
-    y_pred = text2text_generation(ds)
+    y_pred = cosine_similarity(ds)
+    # y_pred = text2text_generation(ds)
     evaluate_performance(ds["test"]["label"], y_pred)
 
 
