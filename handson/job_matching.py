@@ -71,7 +71,7 @@ def match(advert):
 
     return top_matches
 
-advert = """
+advert_1 = """
 Roadside Rescue Mechanic
 Full job description
 Roadside Rescue Mechanic
@@ -244,7 +244,7 @@ In-depth experience of solution delivery using the full Software Development Lif
 Good knowledge of Azure Networks.
 Experience of Microsoft Power Platform and Dynamics 365 environments.
 """
-advert_1 = """
+advert = """
 Title: Senior Software Engineer (Java)
 About the job
 CreateFuture is fast becoming the UK’s most recognisable digital consultancy, with years of experience building digital products and services for major organisations whilst putting our people first. We have offices in the centre of Edinburgh, Leeds, Manchester, and London as well as remote employees located throughout the country.
@@ -320,7 +320,7 @@ We believe that representative teams made up of people with different background
 We are committed to our goal of creating the most inclusive workplace possible. As we strive to build an environment where everyone can thrive and be themselves, we will continue to investigate and challenge biases, while working to identify and remove obstacles to inclusion. If you need additional support or accommodation during the application process, please don’t hesitate to let us know.
 """
 def main():
-    fine_tune()
+    # fine_tune()
     matches = match(advert)
     print(matches[:10])
 

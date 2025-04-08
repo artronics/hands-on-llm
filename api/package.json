@@ -1,0 +1,15 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "main": "prompt.js",
+  "scripts": {
+    "openai": "OPENAI_API_KEY=$(cat http-client.private.env.json | jq -r .dev.apikey) node openai.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "openai": "^4.93.0"
+  }
+}

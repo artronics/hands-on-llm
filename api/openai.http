@@ -1,0 +1,80 @@
+### Example
+POST https://api.openai.com/v1/chat/completions
+Content-Type: application/json
+Authorization: Bearer {{apikey}}
+
+{
+  "model": "gpt-4o-mini",
+  "store": false,
+  "messages": [
+    {
+      "role": "user",
+      "content": "write a haiku about ai"
+    }
+  ]
+}
+
+### Templated prompt
+< {%
+    import claimants from "data/claimants.js"
+    import adverts from "data/job_adverts.js"
+    import {make_suitability_prompt} from "./prompt"
+
+    const claimant = claimants[0];
+    const advert = adverts[0];
+    const question = "Tell me if this job seeker is suitable for the job."
+
+    const prompt = make_suitability_prompt(question, claimant, advert);
+
+    request.variables.set("prompt", prompt);
+%}
+POST https://api.openai.com/v1/chat/completions
+Content-Type: application/json
+Authorization: Bearer {{apikey}}
+
+{
+  "model": "gpt-4o-mini",
+  "store": false,
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "{{prompt}}"
+        }
+      ]
+    }
+  ]
+}
+
+### Labeling
+< {%
+    import adverts from "data/job_adverts.js"
+    import {make_soc_labeling_prompt} from "./prompt"
+
+    const advert = adverts[3];
+    const prompt = make_soc_labeling_prompt(advert);
+
+    request.variables.set("prompt", prompt);
+%}
+POST https://api.openai.com/v1/chat/completions
+Content-Type: application/json
+Authorization: Bearer {{apikey}}
+
+{
+  "model": "gpt-4o-mini",
+  "store": false,
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "{{prompt}}"
+        }
+      ]
+    }
+  ]
+}
+
